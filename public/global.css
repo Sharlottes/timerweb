@@ -1,30 +1,75 @@
 html {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   overflow: hidden;
 }
 
 body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
 }
 
-div {
-  transition: opacity, color 500ms;
-  color: black;
+#__next {
+  min-height: 100%;
+  width: 100%;
 }
 
-.timer-container {
+div.embed-container {
+  border: 1px solid gray;
+  width: 420px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+div.embed-container > iframe {
+  border: none;
+  height: 65px;
+  min-width: 420px;
+}
+
+div.clipboard > div.icon {
+  width: 20px;
+  height: 100%;
+  padding: 2px;
+  border-right: 1px solid black
+}
+
+div.clipboard > div.text {
+  width: 100%; 
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+div.clipboard > div.text::-webkit-scrollbar { 
+  display: none;
+}
+
+div.main-container {
+  height: 100%; 
+  padding: 10px;
+}
+
+div.divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.12);
+}
+
+
+div.timer-container {
   min-width: 380px;
-  margin: 10px;
   padding: 10px;
   border: 1px solid gray;
 }
 
-.title {
+div.timer-container > div.title {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -32,7 +77,7 @@ div {
   font-weight: bold;
 }
 
-.timer {
+div.timer-container > div.timer {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -41,14 +86,18 @@ div {
   height: 2rem;
 }
 
-.digit {
-  margin: auto 0.5rem
+div.digit {
+  transition: opacity, color 500ms;
+  color: black;
+  margin: auto 0.5rem;
+  width: 50px;
+  text-align: center;
 }
 
-.digit:hover {
+div.digit:hover {
   opacity: 0.5;
 }
 
-.blink {
+div.blink {
   color: white;
 }
