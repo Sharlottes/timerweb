@@ -44,10 +44,10 @@ const TimerEmbed: React.FC = () => {
               <Digit getter={() => getRemainingTime(date, 'minute').toString().padStart(2, '0')} />
               :
               <Digit getter={() => getRemainingTime(date, 'second').toString().padStart(2, '0')} style={{ marginRight: 0 }} />
-              <div style={{ display: 'flex', transform: 'translateX(-5px)', alignItems: 'first baseline' }}>
+              <div style={{ display: 'flex', transform: 'translateX(-3px)', alignItems: 'first baseline' }}>
                 .
                 <Digit ignoreBlink
-                  getter={() => Math.round(getRemainingTime(date, 'milisecond') / 10).toString().padStart(2, '0')}
+                  getter={() => Math.round(getRemainingTime(date, 'milisecond') / 10).toString().slice(0, 2).padStart(2, '0')}
                   style={{ textAlign: 'left', fontSize: '0.5em', margin: 0, width: '20px' }}
                 />
               </div>
