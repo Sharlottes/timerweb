@@ -1,21 +1,17 @@
 html {
-  min-height: 100%;
-  width: 100%;
   overflow: hidden;
 }
 
 body {
-  min-height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin: 0;
 }
 
-#__next {
-  min-height: 100%;
-  width: 100%;
+.center {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 div.embed-container {
@@ -28,8 +24,12 @@ div.embed-container {
 
 div.embed-container > iframe {
   border: none;
-  height: 65px;
-  min-width: 420px;
+  height: 85px;
+}
+
+div.clipboard {
+  display: flex;
+  background-color: lightGray
 }
 
 div.clipboard > div.icon {
@@ -40,6 +40,7 @@ div.clipboard > div.icon {
 }
 
 div.clipboard > div.text {
+  margin-left: 5px;
   width: 100%; 
   overflow-x: scroll;
   overflow-y: hidden;
@@ -48,25 +49,31 @@ div.clipboard > div.text {
   scrollbar-width: none;
 }
 
+div.clipboard:hover {
+  width: 100vw;
+}
+
 div.clipboard > div.text::-webkit-scrollbar { 
   display: none;
 }
 
 div.main-container {
-  height: 100%; 
+  height: 100%;
   padding: 10px;
 }
 
 div.divider {
+  width: 100%; 
   height: 1px;
   background-color: rgba(0, 0, 0, 0.12);
 }
 
 
 div.timer-container {
-  min-width: 380px;
+  max-width: 380px;
   padding: 10px;
   border: 1px solid gray;
+  color: black;
 }
 
 div.timer-container > div.title {
@@ -81,16 +88,16 @@ div.timer-container > div.timer {
   width: 100%;
   display: flex;
   justify-content: center;
-  font-family: Orbitron;
+  align-items: first baseline;
+  font-family: 'Share Tech Mono';
   font-size: 30px;
   height: 2rem;
 }
 
 div.digit {
   transition: opacity, color 500ms;
-  color: black;
-  margin: auto 0.5rem;
-  width: 50px;
+  margin: 0 0.5rem;
+  width: 30px;
   text-align: center;
 }
 

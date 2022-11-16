@@ -1,12 +1,12 @@
 import React from 'react'
 import useInterval from '../hooks/useInterval';
 
-const testDate = '20221120,120311'
+export interface DigitProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  getter: () => string
+  ignoreBlink?: boolean
+}
 
-const parseDate = (date = testDate) =>
-  new Date(+date.slice(0, 4), +date.slice(4, 6) - 1, +date.slice(6, 8), +date.slice(9, 11), +date.slice(11, 13), +date.slice(13, 15))
-
-const Digit: React.FC<{ getter: () => string }> = ({ getter }) => {
+const Digit: React.FC<DigitProps> = ({ getter, ignoreBlink = false, ...props }) => {
   const [time, setTime] = React.useState<string>('00');
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -14,7 +14,11 @@ const Digit: React.FC<{ getter: () => string }> = ({ getter }) => {
     const remainingTime = getter();
     if (time !== remainingTime) {
       setTime(remainingTime);
-      if (ref.current) {
+
+      if (ignoreBlink) {
+        if (ref.current?.className.includes('blink')) ref.current.className = 'digit'
+      }
+      else if (ref.current) {
         ref.current.className = 'digit blink';
         setTimeout(() => {
           if (ref.current) ref.current.className = 'digit'
@@ -24,7 +28,7 @@ const Digit: React.FC<{ getter: () => string }> = ({ getter }) => {
   }, 10);
 
   return (
-    <div ref={ref} className='digit blink'>
+    <div ref={ref} className='digit blink' {...props}>
       {time}
     </div>
   )

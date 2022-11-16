@@ -1,40 +1,27 @@
 import React from 'react';
-import ClipboardIcon from './ClipboardIcon';
+import ClipCopybar from './ClipCopybar';
+import LinkIcon from './LinkIcon';
 
-function copyContent(text: string) {
-  return new Promise<string>((res, rej) => {
-    navigator.clipboard.writeText(text)
-      .then(() => res('successfully copied!'))
-      .catch(err => rej(`failed to copy: ${err}`))
-  })
+
+export interface ClipboardCopybarProps {
+  date: string
+  time: string
+  title: string
+  color: string
 }
 
-const ClipboardCopybar: React.FC<{ date: string, time: string, title: string }> = ({ date, time, title }) => {
-  const [clickResult, setClickResult] = React.useState('');
-
-  const text = `<iframe src='https://timerweb.vercel.app/embed/?date=${date},${time}&title=${title}' style='border: none; height: 85px; min-width: 420px'></iframe>`;
-
-  const handleCopyClick = () => {
-    copyContent(text)
-      .then(res => setClickResult(res))
-      .catch(err => setClickResult(err))
-      .then(() => setTimeout(() => setClickResult(''), 1000))
-  }
+const ClipboardCopybar: React.FC<ClipboardCopybarProps> = ({ date, time, title, color }) => {
+  const link = `https://timerweb.vercel.app/embed/?date=${date},${time}&title=${title}&color=${color}`;
+  const text = `<iframe src='${link}' style='border: none; height: 85px;'></iframe>`;
 
   return (
     <>
       <div className='embed-container'>
-        <iframe src={`https://timerweb.vercel.app/embed/?date=${date},${time}&title=${title}`} />
-        <div className='clipboard' style={{ display: 'flex', backgroundColor: 'lightGray' }}>
-          <div className='icon' onClick={handleCopyClick}>
-            <ClipboardIcon />
-          </div>
-          <div className='text'>
-            {text}
-          </div>
-        </div>
+        <iframe src={`https://timerweb.vercel.app/embed/?date=${date},${time}&title=${title}&color=${color}`} />
+        <ClipCopybar text={text} />
+        <div className='divider' style={{ backgroundColor: 'black' }} />
+        <ClipCopybar text={link} icon={<LinkIcon />} />
       </div>
-      {clickResult}
     </>
   )
 }

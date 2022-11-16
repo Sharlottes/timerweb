@@ -27,25 +27,33 @@ const TimerEmbed: React.FC = () => {
 
   const date = query.date?.toString() || undefined;
   const title = query.title?.toString();
+  const color = query.color?.toString() || '000000';
 
   return (
-    <div className='timer-container'>
-      <div className='title'>{title}</div>
-      <div className='timer'>
-        {date && !/\d{8},\d{6}/.test(date)
-          ? <span style={{ color: 'red' }}>invalid date format!</span>
-          : (<>
-            <Digit getter={() => getRemainingTime(date, 'day').toString().padStart(2, '0')} />
-            :
-            <Digit getter={() => getRemainingTime(date, 'hour').toString().padStart(2, '0')} />
-            :
-            <Digit getter={() => getRemainingTime(date, 'minute').toString().padStart(2, '0')} />
-            :
-            <Digit getter={() => getRemainingTime(date, 'second').toString().padStart(2, '0')} />
-            :
-            <Digit getter={() => Math.round(getRemainingTime(date, 'milisecond') / 10).toString().padStart(2, '0')} />
-          </>)
-        }
+    <div className='center'>
+      <div className='timer-container'>
+        <div className='title'>{title}</div>
+        <div className='timer' style={{ color: '#' + color }}>
+          {date && !/\d{8},\d{6}/.test(date)
+            ? <span style={{ color: 'red' }}>invalid date format!</span>
+            : (<>
+              <Digit getter={() => getRemainingTime(date, 'day').toString().padStart(2, '0')} />
+              :
+              <Digit getter={() => getRemainingTime(date, 'hour').toString().padStart(2, '0')} />
+              :
+              <Digit getter={() => getRemainingTime(date, 'minute').toString().padStart(2, '0')} />
+              :
+              <Digit getter={() => getRemainingTime(date, 'second').toString().padStart(2, '0')} style={{ marginRight: 0 }} />
+              <div style={{ display: 'flex', transform: 'translateX(-5px)', alignItems: 'first baseline' }}>
+                .
+                <Digit ignoreBlink
+                  getter={() => Math.round(getRemainingTime(date, 'milisecond') / 10).toString().padStart(2, '0')}
+                  style={{ textAlign: 'left', fontSize: '0.5em', margin: 0, width: '20px' }}
+                />
+              </div>
+            </>)
+          }
+        </div>
       </div>
     </div>
   )
