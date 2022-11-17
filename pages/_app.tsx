@@ -8,10 +8,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <title>타이머</title>
       <meta name="description" content="타이머!" />
       <link rel="icon" href="/favicon.ico" />
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet" />
-      <link href="https://fonts.googleapis.com/css2?family=Share%20Tech%20Mono&display=swap" rel="stylesheet" />
     </Head>
     <Component {...pageProps} />
   </>

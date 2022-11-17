@@ -15,6 +15,26 @@ body {
   justify-content: center;
 }
 
+form.embed-config-form {
+
+}
+
+form.embed-config-form > ul > li > input {
+  width: 200px;
+  display: inline-block;
+}
+
+form.embed-config-form > ul > li > label {
+  width: 70px;
+  display: inline-block;
+}
+
+form.embed-config-form > ul > li :nth-child(3) {
+  margin-left: 10px;
+  color: red;
+  width: auto;
+}
+
 div.embed-container {
   border: 1px solid gray;
   width: 420px;

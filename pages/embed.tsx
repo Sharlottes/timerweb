@@ -27,8 +27,7 @@ const TimerEmbed: React.FC = () => {
 
   const date = query.date?.toString() || undefined;
   const title = query.title?.toString();
-  const color = query.color?.toString() || '000000';
-
+  const color = query.color?.toString().replaceAll('#', '') || '000000';
   return (
     <div className='center'>
       <div className='timer-container'>
