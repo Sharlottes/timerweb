@@ -1,5 +1,5 @@
 {
-  "name": "nacksee",
+  "name": "timerweb",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

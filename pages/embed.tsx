@@ -10,6 +10,7 @@ const Title: React.FC<{ format?: string, date?: string }> = ({ format = '', date
   useInterval(() => {
     setTitle(format.replace(/(?:^\$)|[^\\]\$(D|H|M|S)/gi, (_, p: string, index: number, string: string) => {
       const obj: Record<string, number> = {
+        d: getRemainingTime(date, 'day', true),
         D: getRemainingTime(date, 'day', true),
         H: getRemainingTime(date, 'hour', true),
         h: getRemainingTime(date, 'hour'),

@@ -2,7 +2,6 @@ import React from 'react';
 import ClipCopybar from './ClipCopybar';
 import LinkIcon from './LinkIcon';
 
-
 export interface ClipboardCopybarProps {
   time: string
   title: string

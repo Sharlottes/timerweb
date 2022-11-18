@@ -10,7 +10,6 @@ body {
 }
 
 
-
 /*  util  */
 
 div.divider {
@@ -25,7 +24,6 @@ label.error {
   width: auto;
   white-space: nowrap;
 }
-
 
 
 /* main page */
@@ -112,8 +110,6 @@ div.clipboard-bar span.text::-webkit-scrollbar {
 div.clipboard-bar span.text:hover {
   width: 100vw;
 }
-
-
 
 
 /* Digit style */

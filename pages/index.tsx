@@ -37,7 +37,8 @@ const MainPage: React.FC = () => {
       <span style={{ fontWeight: 'bold', fontSize: 50 }}>Countdown Embed Generator</span>
       <div className='divider' style={{ margin: '5px 0 15px 0' }} />
       <div className='content-container'>
-        <span>카운트다운 임베드 생성기!</span>
+        <h2>카운트다운 임베드 생성기!</h2>
+        아래의 설정 입력란에 맞춰 카운트다운 임베드를 생성하고 iframe 또는 url로 공유하세요!
         <form className='embed-config-form'>
           <ul>
             <li>
