@@ -1,3 +1,5 @@
+/*  global  */
+
 html {
   overflow: hidden;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -7,81 +9,9 @@ body {
   margin: 0;
 }
 
-.center {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-form.embed-config-form {
 
-}
-
-form.embed-config-form > ul > li > input {
-  width: 200px;
-  display: inline-block;
-}
-
-form.embed-config-form > ul > li > label {
-  width: 70px;
-  display: inline-block;
-}
-
-form.embed-config-form > ul > li :nth-child(3) {
-  margin-left: 10px;
-  color: red;
-  width: auto;
-}
-
-div.embed-container {
-  border: 1px solid gray;
-  width: 420px;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-div.embed-container > iframe {
-  border: none;
-  height: 85px;
-}
-
-div.clipboard {
-  display: flex;
-  background-color: lightGray
-}
-
-div.clipboard > div.icon {
-  width: 20px;
-  height: 100%;
-  padding: 2px;
-  border-right: 1px solid black
-}
-
-div.clipboard > div.text {
-  margin-left: 5px;
-  width: 100%; 
-  overflow-x: scroll;
-  overflow-y: hidden;
-  white-space: nowrap;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-div.clipboard:hover {
-  width: 100vw;
-}
-
-div.clipboard > div.text::-webkit-scrollbar { 
-  display: none;
-}
-
-div.main-container {
-  height: 100%;
-  padding: 10px;
-}
+/*  util  */
 
 div.divider {
   width: 100%; 
@@ -89,6 +19,104 @@ div.divider {
   background-color: rgba(0, 0, 0, 0.12);
 }
 
+label.error {
+  margin-left: 10px;
+  color: red;
+  width: auto;
+  white-space: nowrap;
+}
+
+
+
+/* main page */
+
+
+div.main-container {
+  height: 100%;
+  padding: 10px;
+}
+
+div.content-container {
+  margin-left: 20px;
+}
+
+div.content-container > iframe {
+  border: 1px solid gray;
+  border: none;
+  border-bottom: 1px solid black;
+  height: 85px;
+}
+
+form.embed-config-form li {
+  margin: 5px auto;
+}
+
+form.embed-config-form input {
+  width: 150px;
+  display: inline-block;
+}
+
+form.embed-config-form input:only-of-type:not([type=color]) {
+  width: 200px;
+}
+
+form.embed-config-form input[type=color] {
+  width: 50px;
+}
+
+form.embed-config-form label {
+  width: 100px;
+  display: inline-block;
+}
+
+div.clipboard-bar {
+  width: 100%;
+  display: flex;
+  margin: 20px auto;
+  flex-direction: column;
+  justify-content: start;
+}
+div.clipboard-bar > div {
+  width: fit-content;
+  height: 30px;
+  border: 2px solid black;
+  display: flex;
+  align-items: stretch;
+  background-color: lightGray;
+  margin: 5px 0;
+}
+
+div.clipboard-bar div.icon {  
+  padding: 5px;
+  border-right: 1px solid black;
+  background-color: gray;
+}
+
+div.clipboard-bar div.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+div.clipboard-bar span.text {
+  padding: 5px;
+  white-space: nowrap;
+  overflow-x: scroll;
+  width: 50vw;
+  font-size: 0.8rem;
+  scrollbar-width: none;
+}
+
+div.clipboard-bar span.text::-webkit-scrollbar {
+  display: none;
+}
+div.clipboard-bar span.text:hover {
+  width: 100vw;
+}
+
+
+
+
+/* Digit style */
 
 div.timer-container {
   max-width: 380px;

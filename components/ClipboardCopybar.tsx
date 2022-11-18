@@ -14,11 +14,10 @@ const ClipboardCopybar: React.FC<ClipboardCopybarProps> = ({ time, title, color 
   const text = `<iframe src='${link}' style='border: none; height: 85px;'></iframe>`;
 
   return (
-    <>
+    <div className='clipboard-bar'>
       <ClipCopybar text={text} />
-      <div className='divider' style={{ backgroundColor: 'black' }} />
       <ClipCopybar text={link} icon={<LinkIcon />} />
-    </>
+    </div>
   )
 }
 

@@ -20,13 +20,13 @@ const ClipCopybar: React.FC<{ text: string, icon?: JSX.Element }> = ({ text, ico
 
   return (
     <>
-      <div className='clipboard'>
+      <div>
         <div className='icon' onClick={handleCopyClick}>
           {icon}
         </div>
-        <div className='text'>
+        <span className='text'>
           {text}
-        </div>
+        </span>
       </div>
       {clickResult}
     </>
