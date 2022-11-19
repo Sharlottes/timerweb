@@ -1,6 +1,7 @@
 import React from 'react';
 import ClipCopybar from './ClipCopybar';
-import LinkIcon from './LinkIcon';
+import LinkIcon from './icons/LinkIcon';
+import GithubIcon from './icons/GithubIcon';
 
 export interface ClipboardCopybarProps {
   time: string
@@ -16,6 +17,7 @@ const ClipboardCopybar: React.FC<ClipboardCopybarProps> = ({ time, title, color 
     <div className='clipboard-bar'>
       <ClipCopybar text={text} />
       <ClipCopybar text={link} icon={<LinkIcon />} />
+      <ClipCopybar text='https://github.com/sharlottes' icon={<GithubIcon />} />
     </div>
   )
 }

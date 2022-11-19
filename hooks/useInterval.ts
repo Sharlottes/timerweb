@@ -8,10 +8,9 @@ function useInterval(callback: Function, delay: number) {
   }, [callback]);
 
   React.useEffect(() => {
-    if (delay !== null) {
-      let id = setInterval(() => savedCallback.current?.call(null), delay);
-      return () => clearInterval(id);
-    }
+    if (delay === null) return;
+    const id = setInterval(() => savedCallback.current?.call(null), delay);
+    return () => clearInterval(id);
   }, [delay]);
 }
 

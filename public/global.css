@@ -9,6 +9,10 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /*  util  */
 
@@ -108,7 +112,8 @@ div.clipboard-bar span.text::-webkit-scrollbar {
   display: none;
 }
 div.clipboard-bar span.text:hover {
-  width: 100vw;
+  width: 100%;
+  min-width: 50vw;
 }
 
 

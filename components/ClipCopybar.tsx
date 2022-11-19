@@ -1,5 +1,5 @@
 import React from 'react'
-import ClipboardIcon from './ClipboardIcon';
+import ClipboardIcon from './icons/ClipboardIcon';
 
 function copyContent(text: string) {
   return new Promise<string>((res, rej) => {
@@ -25,7 +25,7 @@ const ClipCopybar: React.FC<{ text: string, icon?: JSX.Element }> = ({ text, ico
           {icon}
         </div>
         <span className='text'>
-          {text}
+          <a href={text}>{text}</a>
         </span>
       </div>
       {clickResult}
