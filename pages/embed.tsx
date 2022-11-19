@@ -8,7 +8,7 @@ const Title: React.FC<{ format?: string, date?: string }> = ({ format = '', date
   const [title, setTitle] = React.useState('');
 
   useInterval(() => {
-    setTitle(format.replace(/(?:^\$)|[^\\]\$(D|H|M|S)/gi, (_, p: string, index: number, string: string) => {
+    setTitle(format.replace(/(?:^\$|[^\\]\$)(D|H|M|S)/gi, (_, p: string, index: number, string: string) => {
       const obj: Record<string, number> = {
         d: getRemainingTime(date, 'day', true),
         D: getRemainingTime(date, 'day', true),
@@ -19,7 +19,7 @@ const Title: React.FC<{ format?: string, date?: string }> = ({ format = '', date
         S: getRemainingTime(date, 'second', true),
         s: getRemainingTime(date, 'second')
       }
-      return string[index] + obj[p]?.toString() ?? '';
+      return (index === 0 ? '' : string[index]) + (obj[p] ?? '').toString();
     }))
   }, 10);
 

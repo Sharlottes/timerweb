@@ -72,7 +72,7 @@ div.clipboard-bar {
   display: flex;
   margin: 20px auto;
   flex-direction: column;
-  justify-content: start;
+  justify-content: flex-start;
 }
 div.clipboard-bar > div {
   width: fit-content;
