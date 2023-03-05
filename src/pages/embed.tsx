@@ -4,7 +4,7 @@ import Digit from '../components/Digit';
 import { getRemainingTime } from '../utils/getRemainingTime';
 import useInterval from '../hooks/useInterval';
 
-const Title: React.FC<{ format?: string, date?: string }> = ({ format = '', date }) => {
+const Title: React.FC<{ format: string, date: string }> = ({ format, date }) => {
   const [title, setTitle] = React.useState('');
 
   useInterval(() => {
@@ -29,8 +29,8 @@ const Title: React.FC<{ format?: string, date?: string }> = ({ format = '', date
 const TimerEmbed: React.FC = () => {
   const { query } = useRouter();
 
-  const date = query.date?.toString() || undefined;
-  const title = query.title?.toString();
+  const date = query.date?.toString() || "";
+  const title = query.title?.toString() || "";
   const color = query.color?.toString().replaceAll('#', '') || '000000';
 
   return (
