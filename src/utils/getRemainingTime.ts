@@ -5,7 +5,7 @@ const parseDate = (date: string) => {
 type timeType = 'day' | 'hour' | 'minute' | 'second' | 'milisecond';
 const cal: Record<timeType, (n: number, all: boolean) => number> = {
   day: n => n / 1000 / 60 / 60 / 24,
-  hour: (n, a) => n / 1000 / 60 / 60 % (a ? Infinity : 60),
+  hour: (n, a) => n / 1000 / 60 / 60 % (a ? Infinity : 24),
   minute: (n, a) => n / 1000 / 60 % (a ? Infinity : 60),
   second: (n, a) => n / 1000 % (a ? Infinity : 60),
   milisecond: (n, a) => n % (a ? Infinity : 1000),
